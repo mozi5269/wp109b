@@ -1,29 +1,54 @@
-<html><head>
-<style> 
-button { 
-   padding: 50px 50px;
-   background-color: DodgerBlue;
-   color: white;
-   border: 5px;
-   border-radius: 10px;
-}
-h1 {
-  text-shadow: 2px 2px 10px green;
-}
-.warning {
-  background-color: IndianRed;
-}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <title>javascript函數練習</title>
+    </head>
+    <script>
+        function hello(){
+            alert("hello world");
+        }
+        //hello();
 
-.info {
-  background-color: LightSeaGreen;
-}
-</style>
-</head>
-<body>
-<h1>汁液學弟</h1>
-<p>👀</p>
-<p>🌵🌵</p>
-<p>👀</p>
-<button>只有今天限定冰冰姐泡湯</button>
-<marquee behavior="alternate" scrollamount="20" bgcolor="FF3030"><font size="4"><h1>屁孩都愛改管</h1></font></marquee>
-</body></html>
+        function add(){
+            var numberFir = parseInt(document.getElementById('numFirst').value);
+            var numberSec = parseInt(document.getElementById('numSecond').value);
+            var total = numberFir+numberSec;
+            document.getElementById('totalid').textContent = total;
+        }
+
+        function mulit(){
+            var numberFir = parseInt(document.getElementById('numFirst').value);
+            var numberSec = parseInt(document.getElementById('numSecond').value);
+            var total = numberFir*numberSec;
+            document.getElementById('mulitId').textContent = total;
+        }
+
+        function qu(){
+            var numberFir = parseInt(document.getElementById('numFirst').value);
+            var numberSec = parseInt(document.getElementById('numSecond').value);
+            var total = numberFir/numberSec;
+            document.getElementById('quId').textContent = total;
+        }
+
+        function sub(){
+            var numberFir = parseInt(document.getElementById('numFirst').value);
+            var numberSec = parseInt(document.getElementById('numSecond').value);
+            var total = numberFir-numberSec;
+            document.getElementById('subId').textContent = total;
+        }
+    
+    </script>
+    <body>
+        <p>請輸入數字1<input type="text" id='numFirst'>
+        請輸入數字2<input type="text" id='numSecond'></p>
+        <p><button onclick="add()">求和</button>=<em id='totalid'></em></p>
+
+        <p><button onclick="mulit()">求乘</button>＝<em id='mulitId'></em></p>
+
+        <p><button onclick="qu()">求商</button>＝<em id="quId"></em></p>
+
+        <p><button onclick="sub()">求差</button>=<em id="subId"></em></p>
+    
+    </body>
+</html>
