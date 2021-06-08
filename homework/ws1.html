@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 
-    <title>Number guessing game</title>
+    <title>猜數字</title>
 
     <style>
       html {
@@ -25,12 +25,12 @@
   </head>
 
   <body>
-    <h1>Number guessing game</h1>
+    <h1>猜數字</h1>
 
     <p>猜1~100間的數字</p>
 
     <div class="form">
-      <label for="guessField">Enter a guess: </label><input type="text" id="guessField" class="guessField">
+      <label for="guessField">輸入數字: </label><input type="text" id="guessField" class="guessField">
       <input type="submit" value="Submit guess" class="guessSubmit">
     </div>
 
@@ -53,27 +53,27 @@
       function checkGuess() {
         let userGuess = Number(guessField.value);
         if (guessCount === 1) {
-          guesses.textContent = 'Previous guesses: ';
+          guesses.textContent = '之前的: ';
         }
 
         guesses.textContent += userGuess + ' ';
 
         if (userGuess === randomNumber) {
-          lastResult.textContent = 'Congratulations! You got it right!';
+          lastResult.textContent = '恭喜猜對!';
           lastResult.style.backgroundColor = 'green';
           lowOrHi.textContent = '';
           setGameOver();
-        } else if (guessCount === 10) {
+        } else if (guessCount === 100) {
           lastResult.textContent = '!!!GAME OVER!!!';
           lowOrHi.textContent = '';
           setGameOver();
         } else {
-          lastResult.textContent = 'Wrong!';
+          lastResult.textContent = '錯!';
           lastResult.style.backgroundColor = 'red';
           if(userGuess < randomNumber) {
-            lowOrHi.textContent = 'Last guess was too low!' ;
+            lowOrHi.textContent = '太低!' ;
           } else if(userGuess > randomNumber) {
-            lowOrHi.textContent = 'Last guess was too high!';
+            lowOrHi.textContent = '太高!';
           }
         }
 
@@ -88,7 +88,7 @@
         guessField.disabled = true;
         guessSubmit.disabled = true;
         resetButton = document.createElement('button');
-        resetButton.textContent = 'Start new game';
+        resetButton.textContent = '開始新遊戲';
         document.body.appendChild(resetButton);
         resetButton.addEventListener('click', resetGame);
       }
