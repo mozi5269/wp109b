@@ -54,7 +54,7 @@ text-decoration: none;
 <div class="style1">
 <p class="style10">猜數字
 </p>
-<p class="style8">先按開始鍵，再鍵入四個數字猜數。如果猜對一個數字且位置相同，則得1A。如果猜對一個數字，但是位置不同，則得1B。目標是猜數得4A。</p>
+<p class="style8">先按開始鍵，再鍵入1~100中的數字。如果猜對一個數字且位置相同，則得1A。如果猜對一個數字，但是位置不同，則得1B。目標是猜數得4A。</p>
 </div>
 </p>
 <script>
@@ -214,10 +214,10 @@ function LoadCheck()
       <div align="center"><center><table border="2" bgcolor="skyblue">
 <tbody>
         <tr>
-          <td bgcolor="#FFCC66">
+          <td bgcolor="skyblue">
 			<textarea name="accLOGS" onfocus="document.guess.accLOGS.blur()" style="width: 272px; height: 311px">請先按開始[開始]鍵!!
 </textarea> </td>
-          <td bgcolor="#FFCC66" style="width: 301px" class="style12">
+          <td bgcolor="skyblue" style="width: 301px" class="style12">
 			<div class="style1">
 &nbsp;&nbsp; 猜數次數<span class="style11">︰</span> <input name="accCOUNT" onfocus="document.guess.accCOUNT.blur()" size="4" value="0"> 
 			次<br>
@@ -246,7 +246,7 @@ function LoadCheck()
             <tr>
               <td><input onclick="entry('7')" type="button" value="７　"> </td>
               <td><input onclick="entry('8')" type="button" value="８　"> </td>
-              <td bgcolor="#FFCC66"><input onclick="entry('9')" type="button" value="９　"> </td>
+              <td><input onclick="entry('9')" type="button" value="９　"> </td>
             </tr>
             <tr>
               <td><input onclick="entry('C')" type="button" value="清除"> </td>
