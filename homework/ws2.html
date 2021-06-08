@@ -54,13 +54,12 @@ text-decoration: none;
 <div class="style1">
 <p class="style10">猜數字
 </p>
-<p class="style8">先按開始鍵，再鍵入1~100中的數字。如果猜對一個數字且位置相同，則得1A。如果猜對一個數字，但是位置不同，則得1B。目標是猜數得4A。</p>
+<p class="style8">先按開始鍵，再鍵入1~100中的數字。</p>
 </div>
 </p>
 <script>
 guessFlag  = false
 guessCount = 0
-guessTimer = 0
 guessLogs  = '開始'
 RecordLogs  = ''
 guessValue = ''
@@ -84,8 +83,7 @@ function Startguess()
     }
   else
     {
-    var guessClock = new Date()
-    guessTimer = guessClock.getTime()
+    var guessClock = new Date()    
     guessFlag  = true
     guessCheck = '----'
     guessCount = 1
@@ -95,21 +93,10 @@ function Startguess()
     NumberCreat()
     document.guess.accLOGS.value  = guessLogs
     document.guess.accCOUNT.value = guessCount
-    document.guess.accTIMER.value = guessTimer
     document.guess.DISPLAY.value  = guessCheck
     document.guess.LOADING.value  = guessInput
     document.guess.LOADING.focus()
     LoopTimer()
-    }
-  }
-function LoopTimer()
-  {
-  if (guessFlag)
-    {
-    var NowTimer = new Date()
-    var Now      = Math.round((NowTimer.getTime() - guessTimer)/1000)
-    document.guess.accTIMER.value = Now
-    setTimeout('LoopTimer()', 1000)
     }
   }
 function NumberCreat()
@@ -179,13 +166,11 @@ function LoadCheck()
   guessCheck = '' + Value_A + 'A' + Value_B + 'B'
   var WorkString = '' + guessCount                  + '-'
                       + guessKey                    + '-'
-                      + guessCheck                  + '-'+"第"
-                      + document.guess.accTIMER.value + "秒"+'\r\n'
-  var KeepString = '在第' + document.guess.accTIMER.value + '秒時-'
-                 + '猜第' + guessCount                  + '次-'
+                      + guessCheck                  + '\r\n'
+  var KeepString ='猜第' + guessCount                  + '次-'
                  + '猜數' + guessKey                    + '-'
                  + '結果' + guessCheck                  + '\r\n'
-  if (Value_A == 4)
+  if (Value_A == 1)
     {
     WorkString  = '恭喜過關!\r\n' + WorkString
     KeepString += '順利過關!\r\n'
