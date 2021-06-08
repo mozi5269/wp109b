@@ -32,7 +32,7 @@
 
     <div class="form">
       <label for="guessField">輸入數字: </label><input type="text" id="guessField" class="guessField">
-      <input type="submit" value="輸入" class="guessSubmit">
+      <input type="submit" value="AAA guess" class="guessSubmit">
     </div>
 
     <div class="resultParas">
@@ -57,7 +57,7 @@
           guesses.textContent = '之前的: ';
         }
 
-        guesses.textContent = '之前的: ' userGuess + ' ';
+        guesses.textContent += userGuess + ' ';
 
         if (userGuess === randomNumber) {
           lastResult.textContent = '恭喜猜對!';
