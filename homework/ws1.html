@@ -34,7 +34,7 @@
     </font>
   </marquee>
   <font size="5">
-    <p>猜1~100間的數字</p>
+    <p>猜1~100間的數字，請在10次以內完成!</p>
   </font>
 
   <div class="form">
@@ -43,9 +43,15 @@
   </div>
 
   <div class="resultParas">
-    <font size="5"><p class="guesses"></p></font>
-    <font size="5"><p class="lastResult"></p></font>
-    <font size="5"><p class="lowOrHi"></p></font>
+    <font size="5">
+      <p class="guesses"></p>
+    </font>
+    <font size="5">
+      <p class="lastResult"></p>
+    </font>
+    <font size="5">
+      <p class="lowOrHi"></p>
+    </font>
   </div>
 
   <script>
@@ -72,7 +78,12 @@
         lastResult.style.backgroundColor = 'green';
         lowOrHi.textContent = '';
         setGameOver();
-      } else {
+      } else if (guessCount === 10) {
+        lastResult.textContent = '!!!GAME OVER!!!';
+        lowOrHi.textContent = '';
+        setGameOver();
+      }
+      else {
         lastResult.textContent = '錯!';
         lastResult.style.backgroundColor = 'red';
         if (userGuess < randomNumber) {
