@@ -18,6 +18,9 @@
       max-width: 800px;
       min-width: 480px;
       margin: 0 auto;
+      background-image: url('狗狗1.jpg');
+      background-repeat: repeat;
+      background-position: right top;
     }
 
     .lastResult {
@@ -27,6 +30,7 @@
 </head>
 
 <body>
+
   <marquee behavior="alternate" scrollamount="10" bgcolor=aqua>
     <font size="5">
       <h1>猜數字</h1>
@@ -40,7 +44,39 @@
     <font size="5"><label for="guessField">輸入數字: </label><input type="text" id="guessField" class="guessField"></font>
     <font size="5"><input type="submit" value="輸入" class="guessSubmit"></font>
   </div>
+  <div class="btns">
 
+    <p id="space"><br></p>
+
+    <div class="theBtns">
+
+      <div>
+        <button class="num" onclick="Num(1)">1</button>
+        <button class="num" onclick="Num(2)">2</button>
+        <button class="num" onclick="Num(3)">3</button>
+      </div>
+
+      <div>
+        <button class="num" onclick="Num(4)">4</button>
+        <button class="num" onclick="Num(5)">5</button>
+        <button class="num" onclick="Num(6)">6</button>
+      </div>
+
+      <div>
+        <button class="num" onclick="Num(7)">7</button>
+        <button class="num" onclick="Num(8)">8</button>
+        <button class="num" onclick="Num(9)">9</button>
+      </div>
+
+      <div>
+        <button>~</button>
+        <button class="num" onclick="Num(0)">0</button>
+        <button>~</button>
+      </div>
+
+    </div>
+
+  </div>
   <div class="resultParas">
     <font size="5">
       <p class="guesses"></p>
@@ -127,6 +163,8 @@
       randomNumber = Math.floor(Math.random() * 100) + 1;
     }
   </script>
+
 </body>
+<!-- 想學習設計網頁腳本 -->
 
 </html>
