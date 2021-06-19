@@ -12,8 +12,32 @@
 3. 提示
 
 ## 技術手段
+### 輸入數字
+
+### 跑馬燈
+```html
+<marquee behavior="alternate" scrollamount="10" bgcolor=aqua>
+    <font size="5">
+      <h1>猜數字</h1>
+    </font>
+  </marquee>
+```
+### 提示
+```js
+if (userGuess < randomNumber)
+{
+          min = userGuess;
+          lowOrHi.textContent = '太低!';
+} 
+else if (userGuess > randomNumber) 
+{
+          max = userGuess;
+          lowOrHi.textContent = '太高!';
+}
+```
 
 ## 修改目標
 1. 按鈕
 2. 修復bug
 3. 重新開始
+4. 美化
