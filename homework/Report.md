@@ -7,13 +7,15 @@
 -- https://github.com/mdn/learning-area/blob/master/javascript/introduction-to-js-1/first-splash/number-guessing-game.html
 
 ## 功能
-1. 輸入數字
+1. 背景圖片
 2. 跑馬燈
 3. 提示
+4. 重新開始
 
 ## 技術手段
-### 輸入數字
-
+### 背景圖片
+```
+```
 ### 跑馬燈
 ```html
 <marquee behavior="alternate" scrollamount="10" bgcolor=aqua>
@@ -35,9 +37,10 @@ else if (userGuess > randomNumber)
           lowOrHi.textContent = '太高!';
 }
 ```
-
+### 重新開始
+```
+```
 ## 修改目標
 1. 按鈕
 2. 修復bug
-3. 重新開始
-4. 美化
+3. 美化
