@@ -14,7 +14,13 @@
 
 ## 技術手段
 ### 背景圖片
-```
+```html
+body 
+{
+      background-image: url('狗狗1.jpg');
+      background-repeat: no-repeat;
+      background-size: cover;
+}
 ```
 ### 跑馬燈
 ```html
@@ -22,7 +28,7 @@
     <font size="5">
       <h1>猜數字</h1>
     </font>
-  </marquee>
+</marquee>
 ```
 ### 提示
 ```js
@@ -38,9 +44,18 @@ else if (userGuess > randomNumber)
 }
 ```
 ### 重新開始
-```
+```js
+function setGameOver() 
+{
+      guessField.disabled = true;
+      guessSubmit.disabled = true;
+      resetButton = document.createElement('button');
+      resetButton.textContent = '開始新遊戲';
+      document.body.appendChild(resetButton);
+      resetButton.addEventListener('click', resetGame);
+}
 ```
 ## 修改目標
-1. 按鈕
+1. 按鈕功能
 2. 修復bug
 3. 美化
