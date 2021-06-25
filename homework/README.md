@@ -11,6 +11,7 @@
 2. 跑馬燈
 3. 提示
 4. 重新開始
+5. 除錯
 
 ## 技術手段
 ### 背景圖片
@@ -57,6 +58,13 @@ function setGameOver()
       document.body.appendChild(resetButton);
       resetButton.addEventListener('click', resetGame);
 }
+```
+### 跑馬燈
+```js
+if(userGuess>100||userGuess<1)
+      lastResult.textContent = '請猜範圍內數字!';
+      if(userGuess!=Number)
+      lastResult.textContent = '請猜範圍內數字!';
 ```
 ## 修改目標
 1. 按鈕功能
