@@ -1,259 +1,151 @@
 <!DOCTYPE html>
+<!-- 參考初次接觸Javascript學習該如何開發Web -->
 <html>
 
 <head>
-<title>猜數字</title>
-<meta content="text/html; charset=big5" http-equiv="Content-Type">
-<meta http-equiv="Content-Language" content="zh-tw">
+  <meta charset="utf-8">
 
-<style type="text/css">
-.style1 {
-text-align: left;
-}
-.style2 {
-border-style: solid;
-border-width: 1px;
-}
-.style3 {
-border-width: 1px;
-}
-.style4 {
-border-style: solid;
-border-width: 1px;
-background-color: #FFFFFF;
-}
-.style6 {
-				
-letter-spacing: 2px;
-}
-.style7 {
-				
-letter-spacing: 2px;
-}
-.style8 {
-line-height: 200%;
-text-align: left;
-}
-.style9 {
-letter-spacing: 2px;
-}
-.style10 {
-line-height: 200%;
-text-align: center;
-}
-.style12 {
-text-align: center;
-}
-.style13 {
-text-align: right;
-}
-.style14 {
-text-decoration: none;
-}
-</style>
-<div class="style1">
-<p class="style10">猜數字
-</p>
-<p class="style8">先按開始鍵，再鍵入1~100中的數字。</p>
-</div>
-</p>
-<script>
-guessFlag  = false
-guessCount = 0
-guessLogs  = '開始'
-RecordLogs  = ''
-guessValue = ''
-guessCheck = '----'
-guessInput = ''
-function Pauseguess()
-  {
-  if (guessFlag)
-    {
-    guessLogs  = '---遊戲結束---\r\n'
-    document.guess.accLOGS.value  = guessLogs
-    alert('遊戲結束')
-    guessFlag = false
-    }
-  }
-function Startguess()
-  {
-  if (guessFlag)
-    {
-    alert('遊戲尚未結束')
-    }
-  else
-    {
-    var guessClock = new Date()    
-    guessFlag  = true
-    guessCheck = '----'
-    guessCount = 1
-    guessInput = ''
-    guessLogs  = '---遊戲開始計時---\r\n'
-    RecordLogs  = '\r\n'
-    NumberCreat()
-    document.guess.accLOGS.value  = guessLogs
-    document.guess.accCOUNT.value = guessCount
-    document.guess.DISPLAY.value  = guessCheck
-    document.guess.LOADING.value  = guessInput
-    document.guess.LOADING.focus()
-    LoopTimer()
-    }
-  }
-function NumberCreat()
-  {
-  guessValue = ''
-  var NumSeed = new Array()
-  for (var i=0; i<10; i++) { NumSeed[i]=i }
-  for (var i=0; i<8; i++)
-    {
-    var j = Math.floor(Math.random() * 10)
-    while (NumSeed[j] == -1)
-      { if (j==9) {j=0} else {j++} }
-    guessValue += NumSeed[j]
-    NumSeed[j]   = -1
-    }
-  }
-function entry(x)
-  {
-  if (guessFlag)
-    {
-    if (x>='0' && x<='9') { guessInput = '' + guessInput + x           }
-    else if    (x == 'C') { guessInput = ''                             }
-    else if    (x == 'B')
-      {
-      if (guessInput != '')
-        { guessInput = guessInput.substring(0, guessInput.length - 1) }
-      }
-    document.guess.LOADING.value = guessInput
-    if (guessInput.length == 4) LoadCheck()
-    }
-  else
-   {
-   alert('請先按開始[開始]鍵!')
-   }
-  }
-function KeyIn()
-  {
-  if (guessFlag)
-    {
-    guessInput = '' + document.guess.LOADING.value
-    if (guessInput.length == 4) LoadCheck()
-    }
-  else
-    {
-    document.guess.LOADING.value = ''
-    alert('請先按開始[開始]鍵!')
-    }
-  }
-function LoadCheck()
-  {
-  var guessKey = guessInput
-  guessInput   = ''
-  var Value_A = 0
-  var Value_B = 0
-  for (var i=0; i<4; i++)
-    {
-    if (guessKey.charAt(i) == guessValue .charAt(i)) { Value_A++ }
-    }
-  for (var i=0; i<4; i++)
-    {
-    for (var j=0; j<4; j++)
-      {
-      if (guessKey.charAt(i) == guessValue.charAt(j)) { Value_B++ }
-      }
-    }
-  Value_B -= Value_A
-  guessCheck = '' + Value_A + 'A' + Value_B + 'B'
-  var WorkString = '' + guessCount                  + '-'
-                      + guessKey                    + '-'
-                      + guessCheck                  + '\r\n'
-  var KeepString ='猜第' + guessCount                  + '次-'
-                 + '猜數' + guessKey                    + '-'
-                 + '結果' + guessCheck                  + '\r\n'
-  if (Value_A == 1)
-    {
-    WorkString  = '恭喜過關!\r\n' + WorkString
-    KeepString += '順利過關!\r\n'
-        guessFlag  = false
-    }
-  guessCount++
-  guessLogs = WorkString + guessLogs
-  RecordLogs+= KeepString
-  document.guess.accCOUNT.value = guessCount
-  document.guess.DISPLAY.value  = guessCheck
-  document.guess.LOADING.value  = guessInput
-  document.guess.accLOGS.value  = guessLogs
-  }
-//-->
-</script>
+  <title>猜數字</title>
 
-<meta content="Microsoft FrontPage 12.0" name="GENERATOR">
+  <style>
+    html {
+      font-family: sans-serif;
+    }
+
+    body {
+      background-color: rgb(255, 254, 254);
+      width: 200%;
+      max-width: 800px;
+      min-width: 480px;
+      margin: 0 auto;
+      background-image: url('風景1.jpg');
+      background-repeat: repeat-x;
+      background-size: cover;
+    }
+
+    .lowOrHi {
+      color: rgb(255, 255, 255);
+    }
+
+    .guesses {
+      color: rgb(255, 255, 255);
+    }
+
+    .lastResult {
+      color: rgb(255, 255, 255);
+    }
+  </style>
 </head>
 
-<body bgProperties="fixed" link="#000000" vlink="#000000" alink="#000000" style="margin-left: 150px; margin-right: 150px; background-color: #FFFFFF">
+<body>
 
-<table class="style4" style="width: 70%" align="center">
-  <tr>
-    <td style="width: 50%" class="style3"><form name="guess">
-      <div class="style12">
-      <div align="center"><center><table border="2" bgcolor="skyblue">
-<tbody>
-        <tr>
-          <td bgcolor="skyblue">
-			<textarea name="accLOGS" onfocus="document.guess.accLOGS.blur()" style="width: 272px; height: 311px">請先按開始[開始]鍵!!
-</textarea> </td>
-          <td bgcolor="skyblue" style="width: 301px" class="style12">
-			<div class="style1">
-&nbsp;&nbsp; 猜數次數<span class="style11">︰</span> <input name="accCOUNT" onfocus="document.guess.accCOUNT.blur()" size="4" value="0"> 
-			次<br>
-			<br>
-          &nbsp;
-          時間<span class="style11">︰</span> <input name="accTIMER" onfocus="document.guess.accTIMER.blur()" size="4" value="0"> 
-			秒 </div>
-			<p class="style1">&nbsp; 顯示幾A幾B<span class="style11">︰</span> <input name="DISPLAY" onfocus="document.guess.DISPLAY.blur()" size="4"
-          value="****"> 
-			<p class="style1">&nbsp;<br>
-          &nbsp;&nbsp;
-          輸入四個數字<span class="style11">︰</span> <input maxLength="4" name="LOADING" onchange="KeyIn()" size="8"> </td>
-          <td style="width: 213px" class="style3">
-			<table style="width: 50%" class="style2" align="center">
-<tbody>
-            <tr>
-              <td><input onclick="entry('1')" type="button" value="１　"> </td>
-              <td><input onclick="entry('2')" type="button" value="２　"> </td>
-              <td><input onclick="entry('3')" type="button" value="３　"> </td>
-            </tr>
-            <tr>
-              <td><input onclick="entry('4')" type="button" value="４　"> </td>
-              <td><input onclick="entry('5')" type="button" value="５　"> </td>
-              <td><input onclick="entry('6')" type="button" value="６　"> </td>
-            </tr>
-            <tr>
-              <td><input onclick="entry('7')" type="button" value="７　"> </td>
-              <td><input onclick="entry('8')" type="button" value="８　"> </td>
-              <td><input onclick="entry('9')" type="button" value="９　"> </td>
-            </tr>
-            <tr>
-              <td><input onclick="entry('C')" type="button" value="清除"> </td>
-              <td><input onclick="entry('0')" type="button" value="０　"> </td>
-              <td><input onclick="entry('B')" type="button" value="輸入"> </td>
-            </tr>
-</tbody>
-          </table>
-          </td>
-        </tr>
-</tbody>
-      </table>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      </center></div>
-      								<div class="style13">
- <input onclick="Startguess()" type="button" value="開  始"  style="font-size:medium; border :4px red double; width: 94px; height: 50px;">　&nbsp;&nbsp; 
-<input  onclick="Pauseguess()" type="button" value="停   止" style="font-size:medium;border:4px red double; width: 102px; height: 50px;""center"><small>&nbsp;&nbsp;</small></div>
-</p>
-</div>
-</form>
-<p class="style12">
-</table>
-<p class="style12">&nbsp;</p>
+  <marquee behavior="alternate" scrollamount="10" bgcolor=aqua>
+    <font size="5">
+      <h1>猜數字</h1>
+    </font>
+  </marquee>
+  <font size="5">
+    <p>猜1~100間的數字，請在10次以內完成!</p>
+  </font>
+
+  <div class="form">
+    <font size="5"><label for="guessField">輸入數字: </label><input type="text" id="guessField" class="guessField"></font>
+    <font size="5"><input type="submit" value="輸入" class="guessSubmit"></font>
+  </div>
+
+  <div class="resultParas">
+    <font size="5">
+      <p class="guesses"></p>
+    </font>
+    <font size="5">
+      <p class="lastResult"></p>
+    </font>
+    <font size="5">
+      <p class="lowOrHi"></p>
+    </font>
+  </div>
+
+  <script>
+    let max = 100, min = 0;
+    let randomNumber = Math.floor(Math.random() * 100) + 1;
+    const guesses = document.querySelector('.guesses');
+    const lastResult = document.querySelector('.lastResult');
+    const lowOrHi = document.querySelector('.lowOrHi');
+    const guessSubmit = document.querySelector('.guessSubmit');
+    const guessField = document.querySelector('.guessField');
+    let guessCount = 1;
+    let resetButton;
+
+    function checkGuess() {
+      let userGuess = Number(guessField.value);
+      if (guessCount === 1) {
+        //guesses.textContent = '之前的: ';
+      }
+
+
+
+
+      if (userGuess > max || userGuess < min)
+        lastResult.textContent = '請猜範圍內數字!';
+      else {
+        guesses.textContent = userGuess;
+        lastResult.textContent = '錯!';
+        lastResult.style.backgroundColor = 'red';
+        if (userGuess < randomNumber) {
+          min = userGuess;
+          lowOrHi.textContent = '太低!';
+        } else if (userGuess > randomNumber) {
+          max = userGuess;
+          lowOrHi.textContent = '太高!';
+        }
+        guesses.textContent = '範圍: ' + min + "~" + max;
+        guesses.textContent.Color = 'white';
+      }
+      if (userGuess === randomNumber) {
+        lastResult.textContent = '恭喜猜對!';
+        lastResult.style.backgroundColor = 'green';
+        lowOrHi.textContent = '';
+        setGameOver();
+      } else if (guessCount === 10) {
+        lastResult.textContent = '!!!GAME OVER!!!';
+        lowOrHi.textContent = '';
+        setGameOver();
+      }
+      guessCount++;
+      guessField.value = '';
+      guessField.focus();
+    }
+
+    guessSubmit.addEventListener('click', checkGuess);
+
+    function setGameOver() {
+      guessField.disabled = true;
+      guessSubmit.disabled = true;
+      resetButton = document.createElement('button');
+      resetButton.textContent = '開始新遊戲';
+      document.body.appendChild(resetButton);
+      resetButton.addEventListener('click', resetGame);
+    }
+
+    function resetGame() {
+      guessCount = 1;
+      max = 100;
+      min = 0;
+      const resetParas = document.querySelectorAll('.resultParas p');
+      for (let i = 0; i < resetParas.length; i++) {
+        resetParas[i].textContent = '';
+      }
+
+      resetButton.parentNode.removeChild(resetButton);
+      guessField.disabled = false;
+      guessSubmit.disabled = false;
+      guessField.value = '';
+      guessField.focus();
+      //lastResult.style.backgroundColor = 'white';
+      randomNumber = Math.floor(Math.random() * 100) + 1;
+    }
+  </script>
+
 </body>
+
 </html>
