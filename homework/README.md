@@ -18,7 +18,7 @@
 ```html
 body 
 {
-      background-image: url('風景.jpg');
+      background-image: url('風景1.jpg');
       background-repeat: no-repeat;
       background-size: cover;
 }
