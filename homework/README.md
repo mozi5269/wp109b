@@ -63,7 +63,7 @@ function setGameOver()
 ```js
 if(userGuess>100||userGuess<1)
       lastResult.textContent = '請猜範圍內數字!';
-      if(userGuess!=Number)
+if(userGuess!=Number)
       lastResult.textContent = '請猜範圍內數字!';
 ```
 ## 修改目標
