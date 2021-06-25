@@ -14,10 +14,11 @@
 
 ## 技術手段
 ### 背景圖片
+自己拍攝的照片
 ```html
 body 
 {
-      background-image: url('狗狗1.jpg');
+      background-image: url('風景.jpg');
       background-repeat: no-repeat;
       background-size: cover;
 }
