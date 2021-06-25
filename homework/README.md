@@ -59,7 +59,7 @@ function setGameOver()
       resetButton.addEventListener('click', resetGame);
 }
 ```
-### 跑馬燈
+### 除錯
 ```js
 if(userGuess>100||userGuess<1)
       lastResult.textContent = '請猜範圍內數字!';
