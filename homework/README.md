@@ -16,12 +16,14 @@
 ### 背景圖片
 自己拍攝的照片
 ```html
+<style>
 body 
 {
       background-image: url('風景1.jpg');
       background-repeat: no-repeat;
       background-size: cover;
 }
+</style>
 ```
 ### 跑馬燈
 ```html
