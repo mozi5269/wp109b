@@ -13,14 +13,20 @@
     }
 
     body {
-      background-color: rgb(116, 116, 116);
+      background-color: rgb(255, 254, 254);
       width: 200%;
       max-width: 800px;
       min-width: 480px;
       margin: 0 auto;
       background-image: url('風景1.jpg');
-      background-repeat: no-repeat;
-      background-size: cover;
+      background-repeat: repeat-x;
+      background-size:cover;
+    }
+    .lowOrHi {
+      color: rgb(255, 255, 255);
+    }
+    .guesses {
+      color: rgb(255, 255, 255);
     }
 
     .lastResult {
@@ -103,7 +109,7 @@
     function checkGuess() {
       let userGuess = Number(guessField.value);
       if (guessCount === 1) {
-        guesses.textContent = '之前的: ';
+        //guesses.textContent = '之前的: ';
       }
 
       guesses.textContent = userGuess;
@@ -118,6 +124,8 @@
         lowOrHi.textContent = '';
         setGameOver();
       }
+      if(userGuess>100||userGuess<1)
+      lastResult.textContent = '請猜範圍內數字!';
       else {
         lastResult.textContent = '錯!';
         lastResult.style.backgroundColor = 'red';
@@ -128,7 +136,8 @@
           max = userGuess;
           lowOrHi.textContent = '太高!';
         }
-        guesses.textContent = min + "~" + max;
+        guesses.textContent ='範圍: '+ min + "~" + max;
+        guesses.textContent.Color = 'white';
       }
 
       guessCount++;
