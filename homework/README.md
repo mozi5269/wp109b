@@ -49,15 +49,14 @@ else if (userGuess > randomNumber)
 ```
 ### 重新開始
 ```js
-function setGameOver() 
-{
-      guessField.disabled = true;
-      guessSubmit.disabled = true;
-      resetButton = document.createElement('button');
-      resetButton.textContent = '開始新遊戲';
-      document.body.appendChild(resetButton);
-      resetButton.addEventListener('click', resetGame);
-}
+function resetGame() {
+      guessCount = 1;
+      max = 100;
+      min = 0;
+      const resetParas = document.querySelectorAll('.resultParas p');
+      for (let i = 0; i < resetParas.length; i++) {
+        resetParas[i].textContent = '';
+      }
 ```
 ### 除錯
 ```js
