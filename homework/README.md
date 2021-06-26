@@ -60,10 +60,8 @@ function resetGame() {
 ```
 ### 除錯
 ```js
-if(userGuess>100||userGuess<1)
-      lastResult.textContent = '請猜範圍內數字!';
-if(userGuess!=Number)
-      lastResult.textContent = '請猜範圍內數字!';
+      if (userGuess > max || userGuess < min)
+        lastResult.textContent = '😑請猜範圍內數字!😑';
 ```
 ## 修改目標
 1. 按鈕功能
