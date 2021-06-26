@@ -59,6 +59,7 @@ function resetGame() {
       }
 ```
 ### 除錯
+當輸入大於或小於範圍，會提示
 ```js
       if (userGuess > max || userGuess < min)
         lastResult.textContent = '😑請猜範圍內數字!😑';
